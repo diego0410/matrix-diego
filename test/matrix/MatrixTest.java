@@ -82,7 +82,7 @@ public void testTranspose() {
 @Test
     public void testAdd() {
         System.out.println("add");
-        double[][] A = { { 1, 1, 0 ,0,0}, { 1, 1, 0 ,0,0}, { 0, 1, 1 ,0,0},{ 0, 0, 0 ,1,1},{ 1, 1, 1 ,1,1} };;
+        double[][] A = { { 1, 1, 0 ,0,0}, { 1, 1, 0 ,0,0}, { 0, 1, 1 ,0,0},{ 0, 0, 0 ,1,1},{ 1, 1, 1 ,1,1} };
         double[][] B = { { 1, 1, 0 ,0,1}, { 1, 1, 1 ,0,1}, { 0, 0, 1 ,0,1},{ 0, 0, 0 ,1,1},{ 0, 0, 0 ,1,1} };
         double[][] expResult = { { 2, 2, 0 ,0,1}, { 2, 2, 1 ,0,1}, { 0, 1, 2 ,0,1},{ 0, 0, 0 ,2,2},{ 1, 1, 1 ,2,2} };
         double[][] result = Matrix.add(A, B);
@@ -94,13 +94,13 @@ public void testTranspose() {
      @Test
     public void testSubtract() {
         System.out.println("subtract");
-        double[][] A = null;
-        double[][] B = null;
-        double[][] expResult = null;
+        double[][] A = { { 1, 1, 1 ,1,1}, { 1, 1, 1,1,1}, { 1, 1, 1 ,1,1},{ 1, 1, 1 ,1,1},{ 1, 1, 1 ,1,1} };
+        double[][] B = { { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1},{ 1, 1,1 ,1,1},{ 1, 1, 1 ,1,1} };
+        double[][] expResult = { { 0, 0, 0 ,0,0}, { 0, 0, 0 ,0,0}, { 0, 0, 0 ,0,0},{ 0, 0, 0 ,0,0},{ 0, 0, 0 ,0,0} };
         double[][] result = Matrix.subtract(A, B);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
     
