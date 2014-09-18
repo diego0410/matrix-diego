@@ -102,6 +102,19 @@ public void testTranspose() {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    @Test
+    public void testMultiply_doubleArrArr_doubleArrArr() {
+        System.out.println("multiply");
+        double[][] A = { { 2, 0, 1}, { 3, 0, 0}, { 5, 1, 1 }};
+        double[][] B = { { 1, 0, 1}, { 1, 2,1}, { 1, 1, 0} };
+        double[][] expResult = { { 3, 1, 2}, { 3, 0,3}, { 7, 3, 6} };
+        double[][] result = Matrix.multiply(A, B);
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+       // fail("The test case is a prototype.");
+    }
+    
+
     
     
     public void testMain() {
