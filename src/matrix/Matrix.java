@@ -144,6 +144,7 @@ public class Matrix {
         StdArrayIO.print(e);
         System.out.println();
         
+        //Este metodo no se ejecutaba en el codigo original y fue agredo para que corriera en el main
         System.out.println("A-B");
         System.out.println("--------------------");
         double[][] p = Matrix.subtract(a,b);
