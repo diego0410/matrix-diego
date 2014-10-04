@@ -58,6 +58,7 @@ public class Matrix {
                 C[i][j] = A[i][j] + B[i][j];
         return C;
     }
+    
 
     // return C = A - B
     public static double[][] subtract(double[][] A, double[][] B) {
@@ -69,6 +70,7 @@ public class Matrix {
                 C[i][j] = A[i][j] - B[i][j];
         return C;
     }
+    
 
     // return C = A * B
     public static double[][] multiply(double[][] A, double[][] B) {
@@ -141,7 +143,13 @@ public class Matrix {
         double[][] e = Matrix.add(a, b);
         StdArrayIO.print(e);
         System.out.println();
-
+        
+        System.out.println("A-B");
+        System.out.println("--------------------");
+        double[][] p = Matrix.subtract(a,b);
+        StdArrayIO.print(e);
+        System.out.println();
+                
         System.out.println("A * A^T");
         System.out.println("--------------------");
         double[][] f = Matrix.multiply(a, b);
