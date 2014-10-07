@@ -49,8 +49,8 @@ public class MatrixTest {
     @Test
     public void testIdentity() {
         System.out.println("identity");
-        int n = 5;
-        double[][] expResult = { { 1, 0, 0 ,0,0}, { 0, 1, 0 ,0,0}, { 0, 0, 1 ,0,0},{ 0, 0, 0 ,1,0},{ 0, 0, 0 ,0,1} };
+        int n = 4;
+        double[][] expResult = { { 1, 0, 0 ,0}, { 0, 1, 0 ,0}, { 0, 0, 1 ,0},{ 0, 0, 0 ,1}};
         double[][] result = Matrix.identity(n);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -60,8 +60,8 @@ public class MatrixTest {
     @Test
     public void testDot() {
         System.out.println("dot");
-        double[] x = { 0, 0, 0 ,0,0};
-        double[] y = { 0, 0, 0 ,0,0};
+        double[] x = { 0,0,0,0,0};
+        double[] y = { 0,0,0,0,0};
         double expResult = 0.0;
         double result = Matrix.dot(x, y);
         assertEquals(expResult, result, 0.0);
@@ -71,8 +71,8 @@ public class MatrixTest {
     @Test
 public void testTranspose() {
         System.out.println("transpose");
-        double[][] A = { { 1, 1, 0 ,0,0}, { 1, 1, 0 ,0,0}, { 0, 1, 1 ,0,0},{ 0, 0, 0 ,1,1},{ 1, 1, 1 ,1,1} };
-        double[][] expResult = { { 1, 1, 0 ,0,1}, { 1, 1, 1 ,0,1}, { 0, 0, 1 ,0,1},{ 0, 0, 0 ,1,1},{ 0, 0, 0 ,1,1} };
+        double[][] A = { { 1, 1, 1 ,1,1}, { 1, 1, 1,1,1}, { 1, 1, 1 ,1,1},{ 1, 1, 1 ,1,1},{ 1, 1, 1 ,1,1} };
+        double[][] expResult = { { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1},{ 1, 1, 1,1,1},{ 1, 1, 1 ,1,1} };
         double[][] result = Matrix.transpose(A);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -82,9 +82,9 @@ public void testTranspose() {
 @Test
     public void testAdd() {
         System.out.println("add");
-        double[][] A = { { 1, 1, 0 ,0,0}, { 1, 1, 0 ,0,0}, { 0, 1, 1 ,0,0},{ 0, 0, 0 ,1,1},{ 1, 1, 1 ,1,1} };
-        double[][] B = { { 1, 1, 0 ,0,1}, { 1, 1, 1 ,0,1}, { 0, 0, 1 ,0,1},{ 0, 0, 0 ,1,1},{ 0, 0, 0 ,1,1} };
-        double[][] expResult = { { 2, 2, 0 ,0,1}, { 2, 2, 1 ,0,1}, { 0, 1, 2 ,0,1},{ 0, 0, 0 ,2,2},{ 1, 1, 1 ,2,2} };
+        double[][] A = { { 1,1,1,1,1}, { 1,1, 1 ,1,1}, { 1, 1, 1,1,1},{ 1, 1,1,1,1},{ 1, 1, 1 ,1,1} };
+        double[][] B = { { 1, 1, 1,1,1}, { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1},{ 1, 1, 1,1,1},{ 1, 1, 1,1,1} };
+        double[][] expResult = { { 2, 2, 2 ,2,2}, { 2, 2, 2 ,2,2}, { 2, 2, 2 ,2,2},{ 2, 2, 2,2,2},{ 2, 2, 2 ,2,2} };
         double[][] result = Matrix.add(A, B);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -95,8 +95,8 @@ public void testTranspose() {
     public void testSubtract() {
         System.out.println("subtract");
         double[][] A = { { 1, 1, 1 ,1,1}, { 1, 1, 1,1,1}, { 1, 1, 1 ,1,1},{ 1, 1, 1 ,1,1},{ 1, 1, 1 ,1,1} };
-        double[][] B = { { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1}, { 1, 1, 1 ,1,1},{ 1, 1,1 ,1,1},{ 1, 1, 1 ,1,1} };
-        double[][] expResult = { { 0, 0, 0 ,0,0}, { 0, 0, 0 ,0,0}, { 0, 0, 0 ,0,0},{ 0, 0, 0 ,0,0},{ 0, 0, 0 ,0,0} };
+        double[][] B = { { 0, 0, 0 ,0,0}, { 0,0, 0 ,0,0}, { 0, 0, 0 ,0,0},{ 0, 0,0 ,0,0},{ 0, 0, 0 ,0,0} };
+        double[][] expResult = { { 1, 1, 1 ,1,1}, { 1, 1,1 ,1,1}, { 1,1, 1 ,1,1},{ 1,1, 1,1,1},{ 1, 1, 1 ,1,1} };
         double[][] result = Matrix.subtract(A, B);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -105,9 +105,9 @@ public void testTranspose() {
     @Test
     public void testMultiply_doubleArrArr_doubleArrArr() {
         System.out.println("multiply");
-        double[][] A = { { 2, 0, 1}, { 3, 0, 0}, { 5, 1, 1 }};
-        double[][] B = { { 1, 0, 1}, { 1, 2,1}, { 1, 1, 0} };
-        double[][] expResult = { { 3, 1, 2}, { 3, 0,3}, { 7, 3, 6} };
+        double[][] A = { { 4, 5, 6}, { 7, 1, 5}, { 7, 5, 6 }};
+        double[][] B = { { 8, 6, 7}, { 5, 8,1}, { 2, 5, 7} };
+        double[][] expResult = { { 69, 94, 75}, { 71, 75,85}, { 93, 112, 96} };
         double[][] result = Matrix.multiply(A, B);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
